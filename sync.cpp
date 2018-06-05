@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
     int a0 = atoi(argv[1]);
     int d = atoi(argv[2]);
     int N = atoi(argv[3]);
-    int result = a0;
+    unsigned long long result = a0;
     int a_prev = a0;
 
     auto stage1_start_time = get_current_time_fenced();

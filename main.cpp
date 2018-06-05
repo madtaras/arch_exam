@@ -18,10 +18,10 @@ inline long long to_us(const D& d)
     return std::chrono::duration_cast<std::chrono::microseconds>(d).count();
 }
 
-int counter(int start, int end, int a0, int d)
+unsigned long long counter(int start, int end, int a0, int d)
 {
     int a_prev = a0 + (start - 1) * d;
-    int local_result = a_prev;
+    unsigned long long local_result = a_prev;
     for (int i = start; i < end; i++) {
         a_prev = a_prev + d;
         local_result = local_result + a_prev;
@@ -34,8 +34,8 @@ int main(int argc, char* argv[]) {
     int d = atoi(argv[2]);
     int N = atoi(argv[3]);
     int numOfAsyncs = atoi(argv[4]);
-    int result = 0;
-    std::vector<std::future<int>> calcs;
+    unsigned long long result = 0;
+    std::vector<std::future<unsigned long long>> calcs;
 
     auto stage1_start_time = get_current_time_fenced();
     for (int thr = 0; thr < numOfAsyncs; thr++){
